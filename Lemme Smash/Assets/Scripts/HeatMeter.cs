@@ -18,7 +18,7 @@ public class HeatMeter : MonoBehaviour
     private const float FIRE_PCNT = 0.66f;
 
     // Decrementing things
-    private const float DECR_TIME = 0.5f;//2f;
+    private const float DECR_TIME = 2f;
     private const int DECR_VAL = 1;
 
     public enum HeatMeterState
@@ -88,7 +88,7 @@ public class HeatMeter : MonoBehaviour
 
     private void Awake()
     {
-        Value = 100;
+        Value = 0;
         foreground.transform.position = background.transform.position;
     }
 
@@ -101,7 +101,7 @@ public class HeatMeter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log($"Value = {Value}, bird is now: {State}");
+        //Debug.Log($"Value = {Value}, bird is now: {State}");
     }
 
     // Incrementally decrements heat meter independent of all else

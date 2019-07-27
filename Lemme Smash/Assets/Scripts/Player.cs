@@ -45,7 +45,7 @@ public class Player : MonoBehaviour
 
     private void LateUpdate()
     {
-        Debug.Log($"Multiplier is now {multiplier}, which is {(Multiplier) multiplier}!");
+        // Debug.Log($"Multiplier is now {multiplier}, which is {(Multiplier) multiplier}!");
     }
 
     public void AddScore(int scoreToAdd)
