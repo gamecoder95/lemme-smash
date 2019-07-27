@@ -5,14 +5,13 @@ using UnityEngine;
 public class HeatMeter : MonoBehaviour
 {
     private int value;
-    //private int multiplier;
     
     private const int MAX_VALUE = 100;
     private const float HOT_PCNT = 0.33f;
     private const float FIRE_PCNT = 0.66f;
 
     // Decrementing things
-    private const float DECR_TIME = 2f;
+    private const float DECR_TIME = 0.1f;//2f;
     private const int DECR_VAL = 1;
 
     public enum HeatMeterState
