@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
 
     private const int BASE_SCORE_INCR = 10;
     private const int BASE_HEAT_INCR = 5;
+    private const int BASE_HEAT_DECR = 20;
 
     enum Multiplier
     {
@@ -35,7 +36,14 @@ public class Player : MonoBehaviour
                 DetermineMultiplier();
                 AddScore(BASE_SCORE_INCR);
 
-                //Debug.Log($"Heat = {heatMeter.Value}, Score = {score}");
+                Debug.Log($"Heat = {heatMeter.Value}, Score = {score}");
+            };
+
+            inputBlock.MissCallback = () => {
+                heatMeter.Value -= BASE_HEAT_DECR;
+                DetermineMultiplier();
+
+                Debug.Log($"Heat = {heatMeter.Value}, Score = {score}");
             };
         }
     }

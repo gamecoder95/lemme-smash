@@ -8,11 +8,17 @@ public class InputBlock : MonoBehaviour
     private KeyCode keyCode;
 
     private bool valid;
+    private bool hit;
     private SpriteRenderer spriteRenderer;
     private Color originalColor;
 
-    public delegate void ValidHitFunc();
-    public ValidHitFunc ValidHitCallback
+    public delegate void InputPressedFunc();
+    public InputPressedFunc ValidHitCallback
+    {
+        get; set;
+    }
+
+    public InputPressedFunc MissCallback
     {
         get; set;
     }
@@ -35,10 +41,12 @@ public class InputBlock : MonoBehaviour
                 ValidHitCallback();
                 spriteRenderer.color = new Color(255f, 255f, 0f, 255f);
                 valid = false;
+                hit = true;
             }
             else
             {
                 //Debug.Log("MISS!");
+                MissCallback();
             }
         }
 
@@ -59,6 +67,13 @@ public class InputBlock : MonoBehaviour
 
         // Revert to original sprite color.
         spriteRenderer.color = originalColor;
+
+        if (!hit)
+        {
+            MissCallback();
+        }
+
+        hit = false;
     }
 
     private void HandleCollision(GameObject other)
