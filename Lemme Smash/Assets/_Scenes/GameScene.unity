@@ -465,5 +465,20 @@ PrefabInstance:
       propertyPath: keyCode
       value: 275
       objectReference: {fileID: 0}
+    - target: {fileID: 5805992664819884009, guid: ba5b8722ff9c3c54e858615df0cc05dc,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5805992665289203613, guid: ba5b8722ff9c3c54e858615df0cc05dc,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5805992665575958992, guid: ba5b8722ff9c3c54e858615df0cc05dc,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba5b8722ff9c3c54e858615df0cc05dc, type: 3}

@@ -9,6 +9,10 @@ public class Player : MonoBehaviour
     private int multiplier;
     private HeatMeter heatMeter;
 
+    private const int BASE_SCORE_INCR = 10;
+    private const int BASE_HEAT_INCR = 5;
+    private const int BASE_HEAT_DECR = 20;
+
     enum Multiplier
     {
         NORMAL = 1,
@@ -22,25 +26,32 @@ public class Player : MonoBehaviour
         heatMeter = GetComponentInChildren<HeatMeter>();
         score = 0;
         multiplier = (int) Multiplier.NORMAL;
+
+        // Set the callback
+        InputBlock[] inputBlocks = GetComponentsInChildren<InputBlock>();
+        foreach (var inputBlock in inputBlocks)
+        {
+            inputBlock.ValidHitCallback = () => {
+                heatMeter.Value += BASE_HEAT_INCR;
+                DetermineMultiplier();
+                AddScore(BASE_SCORE_INCR);
+
+                Debug.Log($"Heat = {heatMeter.Value}, Score = {score}");
+            };
+
+            inputBlock.MissCallback = () => {
+                heatMeter.Value -= BASE_HEAT_DECR;
+                DetermineMultiplier();
+
+                Debug.Log($"Heat = {heatMeter.Value}, Score = {score}");
+            };
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        switch (heatMeter.State)
-        {
-            case HeatMeter.HeatMeterState.HOT:
-                multiplier = (int) Multiplier.HOT;
-                break;
-
-            case HeatMeter.HeatMeterState.ON_FIRE:
-                multiplier = (int) Multiplier.ON_FIRE;
-                break;
-
-            default:
-                multiplier = (int) Multiplier.NORMAL;
-                break;
-        }
+        DetermineMultiplier();
     }
 
     private void LateUpdate()
@@ -51,5 +62,23 @@ public class Player : MonoBehaviour
     public void AddScore(int scoreToAdd)
     {
         score += scoreToAdd * multiplier;
+    }
+
+    private void DetermineMultiplier()
+    {
+        switch (heatMeter.State)
+        {
+            case HeatMeter.HeatMeterState.HOT:
+                multiplier = (int)Multiplier.HOT;
+                break;
+
+            case HeatMeter.HeatMeterState.ON_FIRE:
+                multiplier = (int)Multiplier.ON_FIRE;
+                break;
+
+            default:
+                multiplier = (int)Multiplier.NORMAL;
+                break;
+        }
     }
 }

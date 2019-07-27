@@ -20,7 +20,7 @@ public class Sequence : MonoBehaviour
         if (Time.time > nextSpawn)
         {
             whatToSpawn = Random.Range(1, 5);
-            Debug.Log("whatToSpawn: " + whatToSpawn);
+            //Debug.Log("whatToSpawn: " + whatToSpawn);
 
             switch (whatToSpawn)
             {
@@ -363,8 +363,8 @@ public class Sequence : MonoBehaviour
                     break;
             }
 
-            nextSpawn = Time.time + Random.Range(0.5f, 1); //Next Arrow will spawn between 2 and 5 seconds, 6 is exclusive
-            Debug.Log("Next Spawn In: " + (nextSpawn - Time.time));
+            nextSpawn = Time.time + Random.Range(0.5f, 1.5f); // 0.5f, 1 //Next Arrow will spawn between 2 and 5 seconds, 6 is exclusive
+            //Debug.Log("Next Spawn In: " + (nextSpawn - Time.time));
         }
     }
 
