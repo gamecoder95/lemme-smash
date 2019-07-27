@@ -6,6 +6,9 @@ public class DestroyHitbox : MonoBehaviour
 {
     void OnTriggerEnter2D(Collider2D other)
     {
-        Destroy(other.gameObject);
+        if (other.gameObject.tag == "Arrow" || other.gameObject.tag == "ComboBreaker")
+        {
+            Destroy(other.gameObject);
+        }
     }
 }

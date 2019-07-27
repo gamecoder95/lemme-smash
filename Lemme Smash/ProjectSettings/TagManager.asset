@@ -4,7 +4,8 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - becky_box
+  - Arrow
+  - ComboBreaker
   layers:
   - Default
   - TransparentFX

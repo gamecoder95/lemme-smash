@@ -101,7 +101,7 @@ public class HeatMeter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log($"Value = {Value}, bird is now: {State}");
+        //Debug.Log($"Value = {Value}, bird is now: {State}");
     }
 
     // Incrementally decrements heat meter independent of all else

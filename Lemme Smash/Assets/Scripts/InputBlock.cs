@@ -9,13 +9,13 @@ public class InputBlock : MonoBehaviour
 
     private bool valid;
     private SpriteRenderer spriteRenderer;
-
-    private const string COMBO_BREAKER_TAG = "ComboBreaker";
+    private Color originalColor;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         spriteRenderer = this.gameObject.GetComponent<SpriteRenderer>();
+        originalColor = spriteRenderer.color;
     }
 
     // Update is called once per frame
@@ -26,12 +26,12 @@ public class InputBlock : MonoBehaviour
             if (valid)
             {
                 Debug.Log("HIT!");
+
                 spriteRenderer.color = new Color(255f, 255f, 0f, 255f);
             }
             else
             {
                 Debug.Log("MISS!");
-                spriteRenderer.color = new Color(255f, 0f, 175f, 255f);
             }
         }
     }
@@ -49,13 +49,13 @@ public class InputBlock : MonoBehaviour
     private void OnTriggerExit2D(Collider2D other)
     {
         valid = false;
+
+        // Revert to original sprite color.
+        spriteRenderer.color = originalColor;
     }
 
     private void SetValidTrue(string otherTag)
     {
-        if (otherTag != COMBO_BREAKER_TAG)
-        {
-            valid = true;
-        }
+        valid = (otherTag != "ComboBreaker");
     }
 }
