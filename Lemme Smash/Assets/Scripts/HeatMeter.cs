@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class HeatMeter : MonoBehaviour
 {
+
+    [SerializeField]
+    private GameObject background;
+
+    [SerializeField]
+    private GameObject foreground;
+
     private int value;
     
     private const int MAX_VALUE = 100;
@@ -11,7 +18,7 @@ public class HeatMeter : MonoBehaviour
     private const float FIRE_PCNT = 0.66f;
 
     // Decrementing things
-    private const float DECR_TIME = 0.1f;//2f;
+    private const float DECR_TIME = 0.5f;//2f;
     private const int DECR_VAL = 1;
 
     public enum HeatMeterState
@@ -46,6 +53,8 @@ public class HeatMeter : MonoBehaviour
                 this.value = 0;
             }
 
+            foreground.transform.localScale = new Vector3((float)this.value / MAX_VALUE, 1);
+            
             if (this.value >= FireValue)
             {
                 State = HeatMeterState.ON_FIRE;
@@ -80,6 +89,7 @@ public class HeatMeter : MonoBehaviour
     private void Awake()
     {
         Value = 100;
+        foreground.transform.position = background.transform.position;
     }
 
     // Start is called before the first frame update
