@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class Sequence : MonoBehaviour
 {
-    public GameObject leftArrow, downArrow, upArrow, rightArrow;
+    public GameObject leftArrow, downArrow, upArrow, rightArrow, beckyHint;
+
+    private bool beckyHintLargeDelay;
 
     float nextSpawn = 1f;
 
@@ -14,6 +16,12 @@ public class Sequence : MonoBehaviour
 
     int spawnSecond;
     int spawnThird;
+
+    private void Start()
+    {
+        beckyHintLargeDelay = false;
+        StartCoroutine(SpawnBeckyHint());
+    }
 
     private void Update()
     {
@@ -368,58 +376,14 @@ public class Sequence : MonoBehaviour
         }
     }
 
-
-
-
-    /*void spawnleftArrow()
+    IEnumerator SpawnBeckyHint()
     {
-        Instantiate(leftArrow, leftArrow.transform.position , Quaternion.identity);
-    }
-
-    void spawndownArrow()
-    {
-        Instantiate(downArrow, downArrow.transform.position, Quaternion.identity);
-    }
-
-    void spawnupArrow()
-    {
-        Instantiate(upArrow, upArrow.transform.position, Quaternion.identity);
-    }
-
-    void spawnrightArrow()
-    {
-        Instantiate(rightArrow, rightArrow.transform.position, Quaternion.identity);
-    }
-
-
-    //Sequence
-
-    private void Update()
-    {
-
-        Debug.Log(Time.time);
-
-        if (Time.time > nextSpawn)
+        while (true)
         {
-
-            spawnleftArrow();
-
-            nextSpawn = 5; //First Note Starts At
-
+            Instantiate(beckyHint, beckyHint.transform.position, Quaternion.identity);
+            yield return new WaitForSeconds(1f * (beckyHintLargeDelay ? 2 : 1));
+            beckyHintLargeDelay = !beckyHintLargeDelay;
         }
-
-           
-
-        if (Time.time > nextSpawn)
-        {
-
-            spawndownArrow();
-
-            nextSpawn = 1000; //Ending, we can asign an if statement that triggers a scene to end the current scene (transition between gameplay to scoreboard)
-        }
-
-    }*/
-
-
+    }
 
 }

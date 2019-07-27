@@ -174,6 +174,8 @@ MonoBehaviour:
   upArrow: {fileID: 7666594985192401796, guid: 11ee2c6973a246741afd0f397ba4387e, type: 3}
   rightArrow: {fileID: 4559665120105538642, guid: ddda2fff497ff5648a18c1c7f91018d4,
     type: 3}
+  beckyHint: {fileID: 1499458611728464717, guid: b573c334e50b71a4a970f6fe621a903b,
+    type: 3}
 --- !u!4 &429098759
 Transform:
   m_ObjectHideFlags: 0
@@ -378,12 +380,12 @@ PrefabInstance:
     - target: {fileID: 7912508512262562748, guid: ba5b8722ff9c3c54e858615df0cc05dc,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.23357789
+      value: -0.15
       objectReference: {fileID: 0}
     - target: {fileID: 7912508512262562748, guid: ba5b8722ff9c3c54e858615df0cc05dc,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.057475653
+      value: -0.23
       objectReference: {fileID: 0}
     - target: {fileID: 7912508512262562748, guid: ba5b8722ff9c3c54e858615df0cc05dc,
         type: 3}
@@ -458,7 +460,7 @@ PrefabInstance:
     - target: {fileID: 6464029120728798695, guid: ba5b8722ff9c3c54e858615df0cc05dc,
         type: 3}
       propertyPath: keyCode
-      value: 47
+      value: 98
       objectReference: {fileID: 0}
     - target: {fileID: 7509506104489564864, guid: ba5b8722ff9c3c54e858615df0cc05dc,
         type: 3}
