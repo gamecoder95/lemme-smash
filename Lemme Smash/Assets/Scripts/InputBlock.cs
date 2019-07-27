@@ -11,6 +11,12 @@ public class InputBlock : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private Color originalColor;
 
+    public delegate void ValidHitFunc();
+    public ValidHitFunc ValidHitCallback
+    {
+        get; set;
+    }
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -25,25 +31,26 @@ public class InputBlock : MonoBehaviour
         {
             if (valid)
             {
-                Debug.Log("HIT!");
-
+                //Debug.Log("HIT!");
+                ValidHitCallback();
                 spriteRenderer.color = new Color(255f, 255f, 0f, 255f);
+                valid = false;
             }
             else
             {
-                Debug.Log("MISS!");
+                //Debug.Log("MISS!");
             }
+        }
+
+        if (gameObject.name == "LeftBlock")
+        {
+            Debug.Log($"Valid = {valid}");
         }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        SetValidTrue(other.gameObject.tag);
-    }
-
-    private void OnTriggerStay2D(Collider2D other)
-    {
-        SetValidTrue(other.gameObject.tag);
+        HandleCollision(other.gameObject);
     }
 
     private void OnTriggerExit2D(Collider2D other)
@@ -54,8 +61,8 @@ public class InputBlock : MonoBehaviour
         spriteRenderer.color = originalColor;
     }
 
-    private void SetValidTrue(string otherTag)
+    private void HandleCollision(GameObject other)
     {
-        valid = (otherTag != "ComboBreaker");
+        valid = (other.tag != "ComboBreaker");
     }
 }
