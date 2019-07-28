@@ -4,6 +4,14 @@ using UnityEngine;
 
 public class Sequence : MonoBehaviour
 {
+    [Header("Spawning Position")]
+
+    [SerializeField]
+    // Allows for spawning the same generated arrow multiple times in different places
+    private Vector3[] spawnPositions;
+
+    [Header("Spawning Objects")]
+
     [SerializeField]
     private GameObject leftArrow;
 
@@ -46,9 +54,12 @@ public class Sequence : MonoBehaviour
         
     }
 
-    private void SpawnArrow(GameObject arrow)
+    private void SpawnArrows(GameObject arrow)
     {
-        Instantiate(arrow, arrow.transform.position, Quaternion.identity);
+        foreach (var pos in spawnPositions)
+        {
+            Instantiate(arrow, pos, Quaternion.identity);
+        }
     }
 
     private IEnumerator SpawnArrows()
@@ -61,7 +72,7 @@ public class Sequence : MonoBehaviour
             Debug.Log(arrows);
             Debug.Log(arrows.Count);
             int indexToSpawn = Random.Range(0, arrows.Count);
-            SpawnArrow(arrows[indexToSpawn]);
+            SpawnArrows(arrows[indexToSpawn]);
 
             timeToNextSpawn = Random.Range(0.5f, 1.5f);
 
