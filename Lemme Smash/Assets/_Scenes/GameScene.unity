@@ -239,7 +239,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 429098759}
-  - component: {fileID: 429098758}
+  - component: {fileID: 429098760}
   m_Layer: 0
   m_Name: Spawner
   m_TagString: Untagged
@@ -247,27 +247,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &429098758
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 429098757}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc94273e335cd0042b7f919950c58fbd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  leftArrow: {fileID: 1914656248664473015, guid: 634f81e2ae03550438de10757f1ddfd5,
-    type: 3}
-  downArrow: {fileID: 5199770828679455970, guid: 187f6d331fe6e534287a87b684c56fb5,
-    type: 3}
-  upArrow: {fileID: 7666594985192401796, guid: 11ee2c6973a246741afd0f397ba4387e, type: 3}
-  rightArrow: {fileID: 4559665120105538642, guid: ddda2fff497ff5648a18c1c7f91018d4,
-    type: 3}
-  beckyHint: {fileID: 1499458611728464717, guid: b573c334e50b71a4a970f6fe621a903b,
-    type: 3}
 --- !u!4 &429098759
 Transform:
   m_ObjectHideFlags: 0
@@ -282,6 +261,27 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &429098760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 429098757}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36d8811395bb5ab40bd0af769a37eefa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  leftArrow: {fileID: 1914656248664473015, guid: 634f81e2ae03550438de10757f1ddfd5,
+    type: 3}
+  downArrow: {fileID: 5199770828679455970, guid: 187f6d331fe6e534287a87b684c56fb5,
+    type: 3}
+  upArrow: {fileID: 7666594985192401796, guid: 11ee2c6973a246741afd0f397ba4387e, type: 3}
+  rightArrow: {fileID: 4559665120105538642, guid: ddda2fff497ff5648a18c1c7f91018d4,
+    type: 3}
+  beckyHint: {fileID: 1499458611728464717, guid: b573c334e50b71a4a970f6fe621a903b,
+    type: 3}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
