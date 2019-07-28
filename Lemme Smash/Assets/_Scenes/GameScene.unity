@@ -270,7 +270,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 429098757}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36d8811395bb5ab40bd0af769a37eefa, type: 3}
+  m_Script: {fileID: 11500000, guid: fc94273e335cd0042b7f919950c58fbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   leftArrow: {fileID: 1914656248664473015, guid: 634f81e2ae03550438de10757f1ddfd5,
@@ -553,6 +553,26 @@ PrefabInstance:
         type: 3}
       propertyPath: keyCode
       value: 276
+      objectReference: {fileID: 0}
+    - target: {fileID: 6154950657751124419, guid: ba5b8722ff9c3c54e858615df0cc05dc,
+        type: 3}
+      propertyPath: leftKeyCode
+      value: 276
+      objectReference: {fileID: 0}
+    - target: {fileID: 6154950657751124419, guid: ba5b8722ff9c3c54e858615df0cc05dc,
+        type: 3}
+      propertyPath: downKeyCode
+      value: 274
+      objectReference: {fileID: 0}
+    - target: {fileID: 6154950657751124419, guid: ba5b8722ff9c3c54e858615df0cc05dc,
+        type: 3}
+      propertyPath: upKeyCode
+      value: 273
+      objectReference: {fileID: 0}
+    - target: {fileID: 6154950657751124419, guid: ba5b8722ff9c3c54e858615df0cc05dc,
+        type: 3}
+      propertyPath: rightKeyCode
+      value: 275
       objectReference: {fileID: 0}
     - target: {fileID: 6464029120728798695, guid: ba5b8722ff9c3c54e858615df0cc05dc,
         type: 3}
