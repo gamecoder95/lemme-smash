@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ArrowFall : MonoBehaviour
+public class Arrow : MonoBehaviour
 {
-
     private float fallSpeed = 6f;
 
     void Update()

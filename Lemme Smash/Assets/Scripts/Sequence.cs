@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Sequence2 : MonoBehaviour
+public class Sequence : MonoBehaviour
 {
     [SerializeField]
     private GameObject leftArrow;
@@ -19,16 +19,20 @@ public class Sequence2 : MonoBehaviour
     [SerializeField]
     private GameObject beckyHint;
 
+    private List<GameObject> arrows;
 
     private bool beckyHintLargeDelay;
     private float timeToNextSpawn;
-    private const int MAX_NUM_ARROWS_AT_ONCE = 3;
-    private const int CHANCE_TO_SPAWN_SECOND = 40;
-
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
+        arrows = new List<GameObject>();
+        arrows.Add(leftArrow);
+        arrows.Add(downArrow);
+        arrows.Add(upArrow);
+        arrows.Add(rightArrow);
+
         timeToNextSpawn = 1f;
         beckyHintLargeDelay = false;
 
@@ -51,36 +55,13 @@ public class Sequence2 : MonoBehaviour
     {
         // Initial wait
         yield return new WaitForSeconds(timeToNextSpawn);
+
         while (true)
         {
-            List<GameObject> arrows = new List<GameObject>();
-
-            arrows.Add(leftArrow);
-            arrows.Add(downArrow);
-            arrows.Add(upArrow);
-            arrows.Add(rightArrow);
-
-            int chanceToSpawnNext = CHANCE_TO_SPAWN_SECOND; 
-            for (int i = 0; i < MAX_NUM_ARROWS_AT_ONCE; ++i)
-            {
-                if (i > 0)
-                {
-                    int spawnNextPercent = Random.Range(1, 101);
-
-                    if (spawnNextPercent <= chanceToSpawnNext)
-                    {
-                        chanceToSpawnNext /= 2;
-                    }
-                    else
-                    {
-                        break;
-                    }
-                }
-
-                int indexToSpawn = Random.Range(0, arrows.Count);
-                SpawnArrow(arrows[indexToSpawn]);
-                arrows.RemoveAt(indexToSpawn);
-            }
+            Debug.Log(arrows);
+            Debug.Log(arrows.Count);
+            int indexToSpawn = Random.Range(0, arrows.Count);
+            SpawnArrow(arrows[indexToSpawn]);
 
             timeToNextSpawn = Random.Range(0.5f, 1.5f);
 
@@ -88,6 +69,7 @@ public class Sequence2 : MonoBehaviour
         }
     }
 
+    // TODO: change to better becky stuff
     IEnumerator SpawnBeckyHint()
     {
         while (true)

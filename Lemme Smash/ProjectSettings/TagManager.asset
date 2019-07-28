@@ -4,9 +4,12 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Arrow
   - ComboBreaker
   - TimeManager
+  - LeftArrow
+  - DownArrow
+  - UpArrow
+  - RightArrow
   layers:
   - Default
   - TransparentFX
