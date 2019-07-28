@@ -44,14 +44,14 @@ public class Player : MonoBehaviour
                 DetermineMultiplier();
                 AddScore(BASE_SCORE_INCR);
 
-                Debug.Log($"Heat = {heatMeter.Value}, Score = {score}");
+                //Debug.Log($"Heat = {heatMeter.Value}, Score = {score}");
             };
 
             inputBlock.MissCallback = () => {
                 heatMeter.Value -= BASE_HEAT_DECR;
                 DetermineMultiplier();
 
-                Debug.Log($"Heat = {heatMeter.Value}, Score = {score}");
+                //Debug.Log($"Heat = {heatMeter.Value}, Score = {score}");
             };
         }
     }

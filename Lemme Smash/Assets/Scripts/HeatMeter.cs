@@ -53,7 +53,9 @@ public class HeatMeter : MonoBehaviour
                 this.value = 0;
             }
 
-            foreground.transform.localScale = new Vector3((float)this.value / MAX_VALUE, 1);
+            foreground.transform.localScale = new Vector3((1 - (float)this.value / MAX_VALUE), 1);
+
+
             
             if (this.value >= FireValue)
             {

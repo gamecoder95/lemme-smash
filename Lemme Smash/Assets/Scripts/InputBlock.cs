@@ -59,7 +59,7 @@ public class InputBlock : MonoBehaviour
             {
                 if (arrowTag == entry.Value)
                 {
-                    Debug.Log("HIT!");
+                    //Debug.Log("HIT!");
                     ValidHitCallback();
 
                     // Replace this with better animation
@@ -70,7 +70,7 @@ public class InputBlock : MonoBehaviour
                 }
                 else
                 {
-                    Debug.Log("MISS!");
+                    //Debug.Log("MISS!");
                     MissCallback();
                 }
             }
