@@ -10,6 +10,8 @@ TagManager:
   - DownArrow
   - UpArrow
   - RightArrow
+  - Arrow
+  - hasAnimator1
   layers:
   - Default
   - TransparentFX
