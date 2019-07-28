@@ -20,6 +20,14 @@ public class Player : MonoBehaviour
         ON_FIRE = 4
     }
 
+    public int HeatValue
+    {
+        get
+        {
+            return heatMeter.Value;
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {

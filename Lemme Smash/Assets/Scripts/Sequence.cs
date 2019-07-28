@@ -381,7 +381,7 @@ public class Sequence : MonoBehaviour
         while (true)
         {
             Instantiate(beckyHint, beckyHint.transform.position, Quaternion.identity);
-            yield return new WaitForSeconds(1f * (beckyHintLargeDelay ? 2 : 1));
+            yield return new WaitForSeconds(15f * (beckyHintLargeDelay ? 2 : 1));
             beckyHintLargeDelay = !beckyHintLargeDelay;
         }
     }
