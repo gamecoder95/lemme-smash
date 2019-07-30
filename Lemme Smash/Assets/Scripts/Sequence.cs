@@ -69,8 +69,8 @@ public class Sequence : MonoBehaviour
 
         while (true)
         {
-            Debug.Log(arrows);
-            Debug.Log(arrows.Count);
+            //Debug.Log(arrows);
+            //Debug.Log(arrows.Count);
             int indexToSpawn = Random.Range(0, arrows.Count);
             SpawnArrows(arrows[indexToSpawn]);
 
