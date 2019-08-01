@@ -20,7 +20,7 @@ public class Timer : MonoBehaviour
         {
             Time.timeScale = 0;
         }
-        time_text.text = ("Time: " + timeRemaining);
+        time_text.text = ("TIME: " + timeRemaining);
     }
 
     IEnumerator DecreaseTime()
