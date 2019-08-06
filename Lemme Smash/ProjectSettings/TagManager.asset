@@ -12,6 +12,7 @@ TagManager:
   - RightArrow
   - Arrow
   - hasAnimator1
+  - Becky
   layers:
   - Default
   - TransparentFX

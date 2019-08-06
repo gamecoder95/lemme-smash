@@ -4,89 +4,81 @@ using UnityEngine;
 
 public class BeckyColorPicker : MonoBehaviour
 {
+    private float waitingTime;
+    private float thinkingTime;
 
+    private bool isThinking;
+    private bool isPressed;
     private BeckyColor currColor;
-    private float thinkingTimeWindow;
-    private float thinkingTimeStamp;
-    private bool pressed;
-
+    
     public enum BeckyColor
     {
-        NONE,
         RED,
         BLUE,
-        YELLOW,
-        GREEN
+        GREEN,
+        YELLOW
     }
-
-    private float ThinkingTime
-    {
-        get
-        {
-            return (Time.time - thinkingTimeStamp);
-        }
-    }
-
-    private bool IsThinking
-    {
-        get
-        {
-            return (!pressed && ThinkingTime < thinkingTimeWindow);
-        }
-    }
-
 
     // Start is called before the first frame update
     private void Awake()
     {
-        thinkingTimeStamp = 0f;
-        pressed = false;
-        thinkingTimeWindow = 1f;//2f;
+        waitingTime = 2f;
+        thinkingTime = 1f;
+        isThinking = false;
+        isPressed = false;
 
         StartCoroutine(ChooseColor());
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         
     }
 
-    public bool SetPressed(BeckyColor colorPressed)
+    public void SetColorPressed(BeckyColor colorPressed/*, successCallback, failCallback (?)*/)
     {
-        if (IsThinking)
+        if (isThinking)
         {
-            pressed = true;
-            return true;
-        }
-        else
-        {
-            return false;
+            if (!isPressed)
+            {
+                if (colorPressed == currColor)
+                {
+                    isPressed = true;
+                    // call successCallback here
+                }
+            }
+
+            // else call failCallback (?)
         }
     }
 
     private IEnumerator ChooseColor()
     {
-        // Initial time delay
-        yield return new WaitForSeconds(1);
-
         while (true)
         {
-            currColor = BeckyColor.RED; // Choose one out of random
-            Debug.Log($"Becky is thining of {currColor}!");
+            yield return new WaitForSeconds(waitingTime);
 
-            thinkingTimeStamp = Time.time;
-            while (IsThinking)
+            // choose color
+            currColor = BeckyColor.RED; // set random
+
+            Debug.Log($"Becky is thinking of {currColor}!");
+
+            isThinking = true;
+
+            // Wait for thinking time; stop prematurely if a player chooses the correct color.
+            for (float timer = thinkingTime; timer >= 0; timer -= Time.deltaTime * Time.timeScale)
             {
-                // do nothing and just wait
+                if (isPressed)
+                {
+                    Debug.Log($"Pressed {thinkingTime - timer} seconds after starting!");
+                    break;
+                }
+                yield return null;
             }
 
-            pressed = false;
-            currColor = BeckyColor.NONE;
-
-
-            // loop time
-            yield return new WaitForSeconds(1);
+            isThinking = false;
+            isPressed = false;
         }
     }
 }

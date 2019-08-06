@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
     private int score;
     private int multiplier;
     private HeatMeter heatMeter;
+    private BeckyColorPicker beckyColorPicker;
 
     private const int BASE_SCORE_INCR = 10;
     private const int BASE_HEAT_INCR = 5;
@@ -31,6 +32,8 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        beckyColorPicker = GameObject.FindGameObjectWithTag("Becky").GetComponent<BeckyColorPicker>();
+
         heatMeter = GetComponentInChildren<HeatMeter>();
         score = 0;
         multiplier = (int) Multiplier.NORMAL;
@@ -60,6 +63,12 @@ public class Player : MonoBehaviour
     void Update()
     {
         DetermineMultiplier();
+
+        if (Input.GetKeyDown(KeyCode.H))
+        {
+            beckyColorPicker.SetColorPressed(BeckyColorPicker.BeckyColor.RED);
+        }
+
     }
 
     private void LateUpdate()
