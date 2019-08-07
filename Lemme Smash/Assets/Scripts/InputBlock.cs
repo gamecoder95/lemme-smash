@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -25,13 +26,12 @@ public class InputBlock : MonoBehaviour
 
     public Animator animator;
 
-    public delegate void InputPressedFunc();
-    public InputPressedFunc ValidHitCallback
+    public Action ValidHitCallback
     {
         get; set;
     }
 
-    public InputPressedFunc MissCallback
+    public Action MissCallback
     {
         get; set;
     }

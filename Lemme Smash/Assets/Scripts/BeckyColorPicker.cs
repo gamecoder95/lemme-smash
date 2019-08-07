@@ -12,7 +12,7 @@ public class BeckyColorPicker : MonoBehaviour
     private bool isThinking;
     private bool isPressed;
     private BeckyColor currColor;
-    
+
     public enum BeckyColor
     {
         RED,
@@ -39,7 +39,7 @@ public class BeckyColorPicker : MonoBehaviour
         
     }
 
-    public void SetColorPressed(BeckyColor colorPressed/*, successCallback, failCallback (?)*/)
+    public void SetColorPressed(BeckyColor colorPressed, Action successCallback = null)
     {
         if (isThinking)
         {
@@ -48,7 +48,11 @@ public class BeckyColorPicker : MonoBehaviour
                 if (colorPressed == currColor)
                 {
                     isPressed = true;
-                    // call successCallback here
+
+                    if (!(successCallback is null))
+                    {
+                        successCallback();
+                    }
                 }
             }
 
