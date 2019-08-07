@@ -1,5 +1,7 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class BeckyColorPicker : MonoBehaviour
@@ -26,6 +28,7 @@ public class BeckyColorPicker : MonoBehaviour
         thinkingTime = 1f;
         isThinking = false;
         isPressed = false;
+        currColor = 0; // Sets it to whatever the first value of the enum is
 
         StartCoroutine(ChooseColor());
     }
@@ -59,8 +62,13 @@ public class BeckyColorPicker : MonoBehaviour
         {
             yield return new WaitForSeconds(waitingTime);
 
-            // choose color
-            currColor = BeckyColor.RED; // set random
+            // Choose a random color
+
+            // This hideous line gets the maximum numeric value of the BeckyColor enum.
+            int maxColorValue = (int)Enum.GetValues(typeof(BeckyColor)).Cast<BeckyColor>().Max();
+
+            // Then choose a value from the enum values from Random as the current color.
+            currColor = (BeckyColor)UnityEngine.Random.Range(0, maxColorValue);
 
             Debug.Log($"Becky is thinking of {currColor}!");
 
@@ -71,11 +79,12 @@ public class BeckyColorPicker : MonoBehaviour
             {
                 if (isPressed)
                 {
-                    Debug.Log($"Pressed {thinkingTime - timer} seconds after starting!");
                     break;
                 }
                 yield return null;
             }
+
+            Debug.Log("Time's up!");
 
             isThinking = false;
             isPressed = false;
