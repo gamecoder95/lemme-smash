@@ -8,10 +8,13 @@ public class BeckyColorPicker : MonoBehaviour
 {
     private float waitingTime;
     private float thinkingTime;
-
-    private bool isThinking;
     private bool isPressed;
     private BeckyColor currColor;
+
+    public bool IsThinking
+    {
+        get; private set;
+    }
 
     public enum BeckyColor
     {
@@ -26,7 +29,7 @@ public class BeckyColorPicker : MonoBehaviour
     {
         waitingTime = 2f;
         thinkingTime = 1f;
-        isThinking = false;
+        IsThinking = false;
         isPressed = false;
         currColor = 0; // Sets it to whatever the first value of the enum is
 
@@ -41,7 +44,7 @@ public class BeckyColorPicker : MonoBehaviour
 
     public void SetColorPressed(BeckyColor colorPressed, Action successCallback = null)
     {
-        if (isThinking)
+        if (IsThinking)
         {
             if (!isPressed)
             {
@@ -76,7 +79,7 @@ public class BeckyColorPicker : MonoBehaviour
 
             Debug.Log($"Becky is thinking of {currColor}!");
 
-            isThinking = true;
+            IsThinking = true;
 
             // Wait for thinking time; stop prematurely if a player chooses the correct color.
             for (float timer = thinkingTime; timer >= 0; timer -= Time.deltaTime * Time.timeScale)
@@ -90,7 +93,7 @@ public class BeckyColorPicker : MonoBehaviour
 
             Debug.Log("Time's up!");
 
-            isThinking = false;
+            IsThinking = false;
             isPressed = false;
         }
     }

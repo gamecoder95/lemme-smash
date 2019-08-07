@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-
+    // TODO: TEST THIS!
     [Header("Becky Combo Buttons")]
 
     [SerializeField]
@@ -28,6 +28,7 @@ public class Player : MonoBehaviour
     private int beckyMultiplier;
     private Action beckyComboSuccessCallback;
     private BeckyColorPicker beckyColorPicker;
+    private bool beckyComboAttempted;
 
     private const int BECKY_BONUS_MULTIPLIER = 2;
     private const float BECKY_BONUS_TIME = 7f;
@@ -51,6 +52,7 @@ public class Player : MonoBehaviour
         }
     }
 
+    // TODO: TEST THIS!
     private bool IsBeckyBonusActive
     {
         get
@@ -69,6 +71,7 @@ public class Player : MonoBehaviour
 
         beckyColorPicker = GameObject.FindGameObjectWithTag("Becky").GetComponent<BeckyColorPicker>();
         beckyMultiplier = 1;
+        beckyComboAttempted = false;
         beckyComboSuccessCallback = () => {
 
             if (!IsBeckyBonusActive)
@@ -103,24 +106,30 @@ public class Player : MonoBehaviour
     {
         DetermineHeatMultiplier();
 
+        // TODO: TEST THIS!
+        if (!beckyColorPicker.IsThinking && beckyComboAttempted)
+        {
+            beckyComboAttempted = false;
+        }
+
+        // TODO: TEST THIS!
         // TODO: add X-Box controls
         if (Input.GetKeyDown(blueKeyCode))
         {
-            beckyColorPicker.SetColorPressed(BeckyColorPicker.BeckyColor.BLUE, beckyComboSuccessCallback);
+            AttemptBeckyCombo(BeckyColorPicker.BeckyColor.BLUE);
         }
         else if (Input.GetKeyDown(redKeyCode))
         {
-            beckyColorPicker.SetColorPressed(BeckyColorPicker.BeckyColor.RED, beckyComboSuccessCallback);
+            AttemptBeckyCombo(BeckyColorPicker.BeckyColor.RED);
         }
         else if (Input.GetKeyDown(greenKeyCode))
         {
-            beckyColorPicker.SetColorPressed(BeckyColorPicker.BeckyColor.GREEN, beckyComboSuccessCallback);
+            AttemptBeckyCombo(BeckyColorPicker.BeckyColor.GREEN);
         }
         else if (Input.GetKeyDown(yellowKeyCode))
         {
-            beckyColorPicker.SetColorPressed(BeckyColorPicker.BeckyColor.YELLOW, beckyComboSuccessCallback);
+            AttemptBeckyCombo(BeckyColorPicker.BeckyColor.YELLOW);
         }
-        
     }
 
     private void LateUpdate()
@@ -131,6 +140,16 @@ public class Player : MonoBehaviour
     public void AddScore(int scoreToAdd)
     {
         score += scoreToAdd * heatMultiplier * beckyMultiplier;
+    }
+
+    private void AttemptBeckyCombo(BeckyColorPicker.BeckyColor chosenColor)
+    {
+        // TODO: TEST THIS!
+        if (beckyColorPicker.IsThinking && !beckyComboAttempted)
+        {
+            beckyColorPicker.SetColorPressed(chosenColor, beckyComboSuccessCallback);
+            beckyComboAttempted = true;
+        }
     }
 
     private void DetermineHeatMultiplier()
