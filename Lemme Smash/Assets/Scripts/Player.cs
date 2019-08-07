@@ -5,6 +5,21 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+
+    [Header("Becky Combo Buttons")]
+
+    [SerializeField]
+    private KeyCode blueKeyCode;
+
+    [SerializeField]
+    private KeyCode redKeyCode;
+
+    [SerializeField]
+    private KeyCode greenKeyCode;
+
+    [SerializeField]
+    private KeyCode yellowKeyCode;
+
     private int score;
 
     private int heatMultiplier;
@@ -88,11 +103,24 @@ public class Player : MonoBehaviour
     {
         DetermineHeatMultiplier();
 
-        if (Input.GetKeyDown(KeyCode.H))
+        // TODO: add X-Box controls
+        if (Input.GetKeyDown(blueKeyCode))
+        {
+            beckyColorPicker.SetColorPressed(BeckyColorPicker.BeckyColor.BLUE, beckyComboSuccessCallback);
+        }
+        else if (Input.GetKeyDown(redKeyCode))
         {
             beckyColorPicker.SetColorPressed(BeckyColorPicker.BeckyColor.RED, beckyComboSuccessCallback);
         }
-
+        else if (Input.GetKeyDown(greenKeyCode))
+        {
+            beckyColorPicker.SetColorPressed(BeckyColorPicker.BeckyColor.GREEN, beckyComboSuccessCallback);
+        }
+        else if (Input.GetKeyDown(yellowKeyCode))
+        {
+            beckyColorPicker.SetColorPressed(BeckyColorPicker.BeckyColor.YELLOW, beckyComboSuccessCallback);
+        }
+        
     }
 
     private void LateUpdate()
