@@ -51,6 +51,7 @@ public class BeckyStates : MonoBehaviour
         }
     }
 
+    // TODO: change the hardcoded numbers.
     private void SetState()
     {
         // TODO: replace the color-changing with animation-setting

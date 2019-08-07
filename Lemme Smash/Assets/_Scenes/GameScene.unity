@@ -131,9 +131,10 @@ GameObject:
   - component: {fileID: 39111424}
   - component: {fileID: 39111423}
   - component: {fileID: 39111425}
+  - component: {fileID: 39111426}
   m_Layer: 0
   m_Name: Becky
-  m_TagString: Untagged
+  m_TagString: Becky
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -212,6 +213,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc7c615950a6dd747b4dae53b27b8af9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &39111426
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 39111422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa98a15e159bf284cb51ddbc32857ac7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &324668785 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7912508512262562749, guid: ba5b8722ff9c3c54e858615df0cc05dc,
@@ -230,6 +243,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 919c6e167f86c1d47b51ec72762870a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  blueKeyCode: 49
+  redKeyCode: 50
+  greenKeyCode: 51
+  yellowKeyCode: 52
 --- !u!1 &429098757
 GameObject:
   m_ObjectHideFlags: 0
@@ -649,6 +666,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 919c6e167f86c1d47b51ec72762870a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  blueKeyCode: 109
+  redKeyCode: 44
+  greenKeyCode: 46
+  yellowKeyCode: 47
 --- !u!95 &1496460066 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 6040732807208098515, guid: ba5b8722ff9c3c54e858615df0cc05dc,
@@ -944,6 +965,26 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -3.48
       objectReference: {fileID: 0}
+    - target: {fileID: 6040732807208098516, guid: ba5b8722ff9c3c54e858615df0cc05dc,
+        type: 3}
+      propertyPath: leftKeyCode
+      value: 97
+      objectReference: {fileID: 0}
+    - target: {fileID: 6040732807208098516, guid: ba5b8722ff9c3c54e858615df0cc05dc,
+        type: 3}
+      propertyPath: downKeyCode
+      value: 115
+      objectReference: {fileID: 0}
+    - target: {fileID: 6040732807208098516, guid: ba5b8722ff9c3c54e858615df0cc05dc,
+        type: 3}
+      propertyPath: upKeyCode
+      value: 119
+      objectReference: {fileID: 0}
+    - target: {fileID: 6040732807208098516, guid: ba5b8722ff9c3c54e858615df0cc05dc,
+        type: 3}
+      propertyPath: rightKeyCode
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 3605114417876621572, guid: ba5b8722ff9c3c54e858615df0cc05dc,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -968,26 +1009,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.99
-      objectReference: {fileID: 0}
-    - target: {fileID: 6040732807208098516, guid: ba5b8722ff9c3c54e858615df0cc05dc,
-        type: 3}
-      propertyPath: leftKeyCode
-      value: 97
-      objectReference: {fileID: 0}
-    - target: {fileID: 6040732807208098516, guid: ba5b8722ff9c3c54e858615df0cc05dc,
-        type: 3}
-      propertyPath: downKeyCode
-      value: 115
-      objectReference: {fileID: 0}
-    - target: {fileID: 6040732807208098516, guid: ba5b8722ff9c3c54e858615df0cc05dc,
-        type: 3}
-      propertyPath: upKeyCode
-      value: 119
-      objectReference: {fileID: 0}
-    - target: {fileID: 6040732807208098516, guid: ba5b8722ff9c3c54e858615df0cc05dc,
-        type: 3}
-      propertyPath: rightKeyCode
-      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba5b8722ff9c3c54e858615df0cc05dc, type: 3}
