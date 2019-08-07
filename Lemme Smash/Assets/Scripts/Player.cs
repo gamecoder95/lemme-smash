@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    // TODO: TEST THIS!
     [Header("Becky Combo Buttons")]
 
     [SerializeField]
@@ -52,7 +51,6 @@ public class Player : MonoBehaviour
         }
     }
 
-    // TODO: TEST THIS!
     private bool IsBeckyBonusActive
     {
         get
@@ -106,13 +104,11 @@ public class Player : MonoBehaviour
     {
         DetermineHeatMultiplier();
 
-        // TODO: TEST THIS!
         if (!beckyColorPicker.IsThinking && beckyComboAttempted)
         {
             beckyComboAttempted = false;
         }
 
-        // TODO: TEST THIS!
         // TODO: add X-Box controls
         if (Input.GetKeyDown(blueKeyCode))
         {
@@ -144,7 +140,6 @@ public class Player : MonoBehaviour
 
     private void AttemptBeckyCombo(BeckyColorPicker.BeckyColor chosenColor)
     {
-        // TODO: TEST THIS!
         if (beckyColorPicker.IsThinking && !beckyComboAttempted)
         {
             beckyColorPicker.SetColorPressed(chosenColor, beckyComboSuccessCallback);

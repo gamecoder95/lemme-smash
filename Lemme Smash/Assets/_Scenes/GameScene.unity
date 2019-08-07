@@ -243,6 +243,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 919c6e167f86c1d47b51ec72762870a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  blueKeyCode: 49
+  redKeyCode: 50
+  greenKeyCode: 51
+  yellowKeyCode: 52
 --- !u!1 &429098757
 GameObject:
   m_ObjectHideFlags: 0
@@ -662,6 +666,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 919c6e167f86c1d47b51ec72762870a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  blueKeyCode: 109
+  redKeyCode: 44
+  greenKeyCode: 46
+  yellowKeyCode: 47
 --- !u!95 &1496460066 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 6040732807208098515, guid: ba5b8722ff9c3c54e858615df0cc05dc,

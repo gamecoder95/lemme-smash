@@ -24,9 +24,6 @@ public class Sequence : MonoBehaviour
     [SerializeField]
     private GameObject rightArrow;
 
-    [SerializeField]
-    private GameObject beckyHint;
-
     private List<GameObject> arrows;
 
     private bool beckyHintLargeDelay;
@@ -45,7 +42,6 @@ public class Sequence : MonoBehaviour
         beckyHintLargeDelay = false;
 
         StartCoroutine(SpawnArrows());
-        StartCoroutine(SpawnBeckyHint());
     }
 
     // Update is called once per frame
@@ -77,17 +73,6 @@ public class Sequence : MonoBehaviour
             timeToNextSpawn = Random.Range(0.5f, 1.5f);
 
             yield return new WaitForSeconds(timeToNextSpawn);
-        }
-    }
-
-    // TODO: change to better becky stuff
-    IEnumerator SpawnBeckyHint()
-    {
-        while (true)
-        {
-            Instantiate(beckyHint, beckyHint.transform.position, Quaternion.identity);
-            yield return new WaitForSeconds(15f * (beckyHintLargeDelay ? 2 : 1));
-            beckyHintLargeDelay = !beckyHintLargeDelay;
         }
     }
 }
