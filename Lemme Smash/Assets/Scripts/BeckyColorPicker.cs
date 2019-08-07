@@ -72,7 +72,7 @@ public class BeckyColorPicker : MonoBehaviour
             int maxColorValue = (int)Enum.GetValues(typeof(BeckyColor)).Cast<BeckyColor>().Max();
 
             // Then choose a value from the enum values from Random as the current color.
-            currColor = (BeckyColor)UnityEngine.Random.Range(0, maxColorValue);
+            currColor = BeckyColor.RED;//(BeckyColor)UnityEngine.Random.Range(0, maxColorValue);
 
             Debug.Log($"Becky is thinking of {currColor}!");
 
