@@ -298,17 +298,17 @@ MonoBehaviour:
   rightArrow: {fileID: 4559665120105538642, guid: ddda2fff497ff5648a18c1c7f91018d4,
     type: 3}
   spawnPositionsLeftArrow:
-  - {x: -10.9, y: 4, z: 0}
-  - {x: -7.53, y: 4, z: 0}
+  - {x: -10.6, y: 4, z: 0}
+  - {x: 3.4, y: 4, z: 0}
   spawnPositionsDownArrow:
-  - {x: -8.7, y: 4, z: 0}
-  - {x: -5.2, y: 4, z: 0}
+  - {x: -8.4, y: 4, z: 0}
+  - {x: 5.7, y: 4, z: 0}
   spawnPositionsUpArrow:
-  - {x: -6.5, y: 4, z: 0}
-  - {x: -3, y: 4, z: 0}
+  - {x: -6.1, y: 4, z: 0}
+  - {x: 8, y: 4, z: 0}
   spawnPositionsRightArrow:
-  - {x: -4.3, y: 4, z: 0}
-  - {x: -0.7, y: 4, z: 0}
+  - {x: -4, y: 4, z: 0}
+  - {x: 10.2, y: 4, z: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
