@@ -4,12 +4,6 @@ using UnityEngine;
 
 public class Sequence : MonoBehaviour
 {
-    [Header("Spawning Position")]
-
-    [SerializeField]
-    // Allows for spawning the same generated arrow multiple times in different places
-    private Vector3[] spawnPositions;
-
     [Header("Spawning Objects")]
 
     [SerializeField]
@@ -24,7 +18,23 @@ public class Sequence : MonoBehaviour
     [SerializeField]
     private GameObject rightArrow;
 
+    // Allows for spawning the same generated arrow multiple times in different places
+    [Header("Spawning Position")]
+
+    [SerializeField]
+    private Vector3[] spawnPositionsLeftArrow;
+
+    [SerializeField]
+    private Vector3[] spawnPositionsDownArrow;
+
+    [SerializeField]
+    private Vector3[] spawnPositionsUpArrow;
+
+    [SerializeField]
+    private Vector3[] spawnPositionsRightArrow;
+
     private List<GameObject> arrows;
+    private Dictionary<GameObject, Vector3[]> arrowToPosMapping;
 
     private bool beckyHintLargeDelay;
     private float timeToNextSpawn;
@@ -32,11 +42,13 @@ public class Sequence : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        arrows = new List<GameObject>();
-        arrows.Add(leftArrow);
-        arrows.Add(downArrow);
-        arrows.Add(upArrow);
-        arrows.Add(rightArrow);
+        arrowToPosMapping = new Dictionary<GameObject, Vector3[]>();
+        arrowToPosMapping.Add(leftArrow, spawnPositionsLeftArrow);
+        arrowToPosMapping.Add(downArrow, spawnPositionsDownArrow);
+        arrowToPosMapping.Add(upArrow, spawnPositionsUpArrow);
+        arrowToPosMapping.Add(rightArrow, spawnPositionsRightArrow);
+
+        arrows = new List<GameObject>(arrowToPosMapping.Keys);
 
         timeToNextSpawn = 1f;
         beckyHintLargeDelay = false;
@@ -52,7 +64,7 @@ public class Sequence : MonoBehaviour
 
     private void SpawnArrows(GameObject arrow)
     {
-        foreach (var pos in spawnPositions)
+        foreach (var pos in arrowToPosMapping[arrow])
         {
             Instantiate(arrow, pos, Quaternion.identity);
         }
@@ -65,10 +77,9 @@ public class Sequence : MonoBehaviour
 
         while (true)
         {
-            //Debug.Log(arrows);
-            //Debug.Log(arrows.Count);
             int indexToSpawn = Random.Range(0, arrows.Count);
-            SpawnArrows(arrows[indexToSpawn]);
+            var randArrow = arrows[indexToSpawn];
+            SpawnArrows(randArrow);
 
             timeToNextSpawn = Random.Range(0.5f, 1.5f);
 
