@@ -6,20 +6,9 @@ using UnityEngine;
 public class InputBlock : MonoBehaviour
 {
     [SerializeField]
-    private KeyCode leftKeyCode;
+    private KeyCode keyCode;
 
-    [SerializeField]
-    private KeyCode downKeyCode;
-
-    [SerializeField]
-    private KeyCode upKeyCode;
-
-    [SerializeField]
-    private KeyCode rightKeyCode;
-
-    private Dictionary<KeyCode, string> inputToArrowMapping;
-
-    private string arrowTag;
+    private bool canHit;
     private bool hit;
     private SpriteRenderer spriteRenderer;
     private Color originalColor;
@@ -39,11 +28,7 @@ public class InputBlock : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        inputToArrowMapping = new Dictionary<KeyCode, string>();
-        inputToArrowMapping.Add(leftKeyCode, "LeftArrow");
-        inputToArrowMapping.Add(downKeyCode, "DownArrow");
-        inputToArrowMapping.Add(upKeyCode, "UpArrow");
-        inputToArrowMapping.Add(rightKeyCode, "RightArrow");
+        hit = canHit = false;
 
         spriteRenderer = this.gameObject.GetComponent<SpriteRenderer>();
         originalColor = spriteRenderer.color;
@@ -54,61 +39,48 @@ public class InputBlock : MonoBehaviour
     {
         animator.SetInteger("isAHit", 0);
         animator.SetInteger("isInputting", 0);
-        // Check each input press: reward for the successful press and punish for each unsuccessful press
-        foreach (KeyValuePair<KeyCode, string> entry in inputToArrowMapping)
+
+        if (Input.GetKeyDown(keyCode))
         {
-            // do something with entry.Value or entry.Key
+            animator.SetInteger("isInputting", 1);
 
-            if (Input.GetKeyDown(entry.Key))
+            if (canHit)
             {
-                animator.SetInteger("isInputting", 1);
+                //Debug.Log("HIT!");
+                ValidHitCallback();
 
-                if (arrowTag == entry.Value)
-                {
-                    //Debug.Log("HIT!");
-                    ValidHitCallback();
+                animator.SetInteger("isAHit", 1); //Tells the animator is a hit and not a miss for the animation
 
-                    animator.SetInteger("isAHit", 1); //Tells the animator is a hit and not a miss for the animation
+                // Replace this with better animation
+                spriteRenderer.color = new Color(255f, 255f, 0f, 255f);
 
-                    // Replace this with better animation
-                    spriteRenderer.color = new Color(255f, 255f, 0f, 255f);
-
-                    arrowTag = null;
-                    hit = true;
-                }
-                else
-                {
-                    //Debug.Log("MISS!");
-                    MissCallback();
-
-                }
+                canHit = false;
+                hit = true;
             }
-
+            else
+            {
+                MissCallback();
+            }
         }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        arrowTag = other.gameObject.tag;
-
-        if (!inputToArrowMapping.ContainsValue(arrowTag))
-        {
-            arrowTag = null;
-        }
+        canHit = true;
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        arrowTag = null;
-
-        // Revert to original sprite color.
+        canHit = false;
         spriteRenderer.color = originalColor;
 
         if (!hit)
         {
             MissCallback();
         }
-
-        hit = false;
+        else
+        {
+            hit = false;
+        }
     }
 }
