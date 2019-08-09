@@ -77,7 +77,7 @@ public class BeckyColorPicker : MonoBehaviour
             // Then choose a value from the enum values from Random as the current color.
             currColor = (BeckyColor)UnityEngine.Random.Range(0, maxColorValue);
 
-            Debug.Log($"Becky is thinking of {currColor}!");
+            //Debug.Log($"Becky is thinking of {currColor}!");
 
             IsThinking = true;
 
@@ -91,7 +91,7 @@ public class BeckyColorPicker : MonoBehaviour
                 yield return null;
             }
 
-            Debug.Log("Time's up!");
+            //Debug.Log("Time's up!");
 
             IsThinking = false;
             isPressed = false;

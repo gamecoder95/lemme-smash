@@ -6,7 +6,7 @@ using UnityEngine;
 public class InputBlock : MonoBehaviour
 {
     [SerializeField]
-    private KeyCode keyCode;
+    private string buttonName;
 
     private bool canHit;
     private bool hit;
@@ -40,8 +40,10 @@ public class InputBlock : MonoBehaviour
         animator.SetInteger("isAHit", 0);
         animator.SetInteger("isInputting", 0);
 
-        if (Input.GetKeyDown(keyCode))
+        if (Input.GetButtonDown(buttonName))
         {
+            Debug.Log("PRESSED!");
+
             animator.SetInteger("isInputting", 1);
 
             if (canHit)
