@@ -41,7 +41,7 @@ public class Player : MonoBehaviour
     [SerializeField]
     private string yellowButtonName;
 
-    private int score;
+    public int score;
 
     private int heatMultiplier;
     private HeatMeter heatMeter;
