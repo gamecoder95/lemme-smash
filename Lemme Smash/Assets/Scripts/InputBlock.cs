@@ -54,8 +54,6 @@ public class InputBlock : MonoBehaviour
         // Handle all kinds of input
         if (GetButtonDown() || (!axisInUse && GetAxis() > 0) || Input.GetKeyDown(keyCode))
         {
-            Debug.Log($"{axisName}: {GetAxis()}");
-
             animator.SetInteger("isInputting", 1);
 
             if (canHit)
