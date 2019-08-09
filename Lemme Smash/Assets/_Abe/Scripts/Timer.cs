@@ -11,14 +11,13 @@ public class Timer : MonoBehaviour
     void Start()
     {
         StartCoroutine("DecreaseTime");
-        Time.timeScale = 1;
     }
 
     void Update()
     {
         if (timeRemaining <= 0)
         {
-            Time.timeScale = 0;
+            StopCoroutine("DecreaseTime");
         }
         time_text.text = ("TIME: " + timeRemaining);
     }
