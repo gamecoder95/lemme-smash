@@ -67,6 +67,8 @@ public class Sequence : MonoBehaviour
         foreach (var pos in arrowToPosMapping[arrow])
         {
             Instantiate(arrow, pos, Quaternion.identity);
+
+            /*Instantiate(arrow, pos, Quaternion.identity);*/
         }
     }
 
@@ -80,10 +82,35 @@ public class Sequence : MonoBehaviour
             int indexToSpawn = Random.Range(0, arrows.Count);
             var randArrow = arrows[indexToSpawn];
             SpawnArrows(randArrow);
+            
+            int willSpawnSecond = Random.Range(0, 11);
 
-            timeToNextSpawn = Random.Range(0.5f, 1.5f);
+            if (willSpawnSecond <6)
+            {
+            int indexToSpawn2 = Random.Range(0, arrows.Count);
+            var randArrow2 = arrows[indexToSpawn2];
+            SpawnArrows(randArrow2);
+
+                int willSpawnThird = Random.Range(0, 11);
+
+                if (willSpawnThird < 4)
+                {
+                    int indexToSpawn3 = Random.Range(0, arrows.Count);
+                    var randArrow3 = arrows[indexToSpawn3];
+                    SpawnArrows(randArrow3);
+                }
+
+            }
+
+
+
+
+            timeToNextSpawn = Random.Range(0.2f, 1.2f);
+            /*timeToNextSpawn = Random.Range(0.5f, 1.5f);*/
 
             yield return new WaitForSeconds(timeToNextSpawn);
         }
     }
+
+    
 }

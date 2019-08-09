@@ -90,6 +90,7 @@ GameObject:
   - component: {fileID: 1309079395460225715}
   - component: {fileID: 4610481492145855700}
   - component: {fileID: 4928914583922119978}
+  - component: {fileID: -3174357601001325224}
   m_Layer: 0
   m_Name: Down
   m_TagString: DownArrow
@@ -150,3 +151,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &-3174357601001325224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5199770828679455970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef592463e3cf48544b5c280dd24f0bf3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

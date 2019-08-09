@@ -40,7 +40,7 @@ public class BeckyColorPicker : MonoBehaviour
     private void Awake()
     {
         waitingTime = 2f;
-        thinkingTime = 1f;
+        thinkingTime = 10f;
         IsThinking = false;
         isPressed = false;
         currColor = 0; // Sets it to whatever the first value of the enum is
@@ -68,6 +68,11 @@ public class BeckyColorPicker : MonoBehaviour
                     {
                         successCallback();
                     }
+
+                    else
+                    {
+                        Debug.Log("Did not Press Color");
+                            }
                 }
             }
 
