@@ -5,8 +5,19 @@ using UnityEngine;
 
 public class InputBlock : MonoBehaviour
 {
+    [Header("Input Fields")]
+
+    [SerializeField]
+    private KeyCode keyCode;
+
     [SerializeField]
     private string buttonName;
+
+    [SerializeField]
+    private string axisName;
+
+    // Used to make the trigger buttons act like buttons
+    private bool axisInUse;
 
     private bool canHit;
     private bool hit;
@@ -28,7 +39,7 @@ public class InputBlock : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        hit = canHit = false;
+        axisInUse = hit = canHit = false;
 
         spriteRenderer = this.gameObject.GetComponent<SpriteRenderer>();
         originalColor = spriteRenderer.color;
@@ -40,9 +51,10 @@ public class InputBlock : MonoBehaviour
         animator.SetInteger("isAHit", 0);
         animator.SetInteger("isInputting", 0);
 
-        if (Input.GetButtonDown(buttonName))
+        // Handle all kinds of input
+        if (GetButtonDown() || (!axisInUse && GetAxis() > 0) || Input.GetKeyDown(keyCode))
         {
-            Debug.Log("PRESSED!");
+            Debug.Log($"{axisName}: {GetAxis()}");
 
             animator.SetInteger("isInputting", 1);
 
@@ -64,6 +76,42 @@ public class InputBlock : MonoBehaviour
                 MissCallback();
             }
         }
+
+        // Reset the trigger button if not pressed
+        if (GetAxis() == 0)
+        {
+            axisInUse = false;
+        }
+    }
+
+    // Prevents errors when an input axis is not assigned
+    private float GetAxis()
+    {
+        if (!(axisName is null))
+        {
+            if (axisName.Length > 0)
+            {
+                // prevent "press and hold"
+                axisInUse = true;
+                return Input.GetAxisRaw(axisName);
+            }
+        }
+
+        return 0;
+    }
+
+    // Prevents errors when a button is not assigned
+    private bool GetButtonDown()
+    {
+        if (!(buttonName is null))
+        {
+            if (buttonName.Length > 0)
+            {
+                return Input.GetButtonDown(buttonName);
+            }
+        }
+
+        return false;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
