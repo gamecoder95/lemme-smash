@@ -26,6 +26,8 @@ public class InputBlock : MonoBehaviour
 
     public Animator animator;
 
+    public GameObject input_film;
+
     public Action ValidHitCallback
     {
         get; set;
@@ -43,6 +45,8 @@ public class InputBlock : MonoBehaviour
 
         spriteRenderer = this.gameObject.GetComponent<SpriteRenderer>();
         originalColor = spriteRenderer.color;
+
+        input_film.SetActive(false);
     }
 
     // Update is called once per frame
@@ -55,7 +59,7 @@ public class InputBlock : MonoBehaviour
         if (GetButtonDown() || (!axisInUse && GetAxis() > 0) || Input.GetKeyDown(keyCode))
         {
             animator.SetInteger("isInputting", 1);
-
+            input_film.SetActive(true);
             if (canHit)
             {
                 //Debug.Log("HIT!");
@@ -64,7 +68,7 @@ public class InputBlock : MonoBehaviour
                 animator.SetInteger("isAHit", 1); //Tells the animator is a hit and not a miss for the animation
 
                 // Replace this with better animation
-                spriteRenderer.color = new Color(255f, 255f, 0f, 255f);
+                //spriteRenderer.color = new Color(255f, 255f, 0f, 255f);
 
                 canHit = false;
                 hit = true;
@@ -121,6 +125,7 @@ public class InputBlock : MonoBehaviour
     {
         canHit = false;
         spriteRenderer.color = originalColor;
+        input_film.SetActive(false);
 
         if (!hit)
         {
