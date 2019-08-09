@@ -566,7 +566,7 @@ PrefabInstance:
     - target: {fileID: 6154950657751124419, guid: ba5b8722ff9c3c54e858615df0cc05dc,
         type: 3}
       propertyPath: keyCode
-      value: 
+      value: 276
       objectReference: {fileID: 0}
     - target: {fileID: 6154950657751124419, guid: ba5b8722ff9c3c54e858615df0cc05dc,
         type: 3}
@@ -587,6 +587,11 @@ PrefabInstance:
         type: 3}
       propertyPath: rightKeyCode
       value: 275
+      objectReference: {fileID: 0}
+    - target: {fileID: 6154950657751124419, guid: ba5b8722ff9c3c54e858615df0cc05dc,
+        type: 3}
+      propertyPath: buttonName
+      value: Left 2
       objectReference: {fileID: 0}
     - target: {fileID: 6464029120728798695, guid: ba5b8722ff9c3c54e858615df0cc05dc,
         type: 3}
@@ -656,7 +661,7 @@ PrefabInstance:
     - target: {fileID: 7912508512902052563, guid: ba5b8722ff9c3c54e858615df0cc05dc,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 475432109126144447, guid: ba5b8722ff9c3c54e858615df0cc05dc,
         type: 3}
@@ -666,12 +671,17 @@ PrefabInstance:
     - target: {fileID: 475432109126144432, guid: ba5b8722ff9c3c54e858615df0cc05dc,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4484799530357793440, guid: ba5b8722ff9c3c54e858615df0cc05dc,
         type: 3}
       propertyPath: keyCode
-      value: 
+      value: 274
+      objectReference: {fileID: 0}
+    - target: {fileID: 4484799530357793440, guid: ba5b8722ff9c3c54e858615df0cc05dc,
+        type: 3}
+      propertyPath: axisName
+      value: Down 2
       objectReference: {fileID: 0}
     - target: {fileID: 7238646760096735374, guid: ba5b8722ff9c3c54e858615df0cc05dc,
         type: 3}
@@ -681,12 +691,17 @@ PrefabInstance:
     - target: {fileID: 7238646760096735361, guid: ba5b8722ff9c3c54e858615df0cc05dc,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6688110922374763409, guid: ba5b8722ff9c3c54e858615df0cc05dc,
         type: 3}
       propertyPath: keyCode
-      value: 
+      value: 273
+      objectReference: {fileID: 0}
+    - target: {fileID: 6688110922374763409, guid: ba5b8722ff9c3c54e858615df0cc05dc,
+        type: 3}
+      propertyPath: axisName
+      value: Up 2
       objectReference: {fileID: 0}
     - target: {fileID: 6878380149010655909, guid: ba5b8722ff9c3c54e858615df0cc05dc,
         type: 3}
@@ -696,12 +711,17 @@ PrefabInstance:
     - target: {fileID: 6878380149010655914, guid: ba5b8722ff9c3c54e858615df0cc05dc,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7480705342338701754, guid: ba5b8722ff9c3c54e858615df0cc05dc,
         type: 3}
       propertyPath: keyCode
-      value: 
+      value: 275
+      objectReference: {fileID: 0}
+    - target: {fileID: 7480705342338701754, guid: ba5b8722ff9c3c54e858615df0cc05dc,
+        type: 3}
+      propertyPath: buttonName
+      value: Right 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba5b8722ff9c3c54e858615df0cc05dc, type: 3}
@@ -950,7 +970,7 @@ PrefabInstance:
     - target: {fileID: 6154950657751124419, guid: ba5b8722ff9c3c54e858615df0cc05dc,
         type: 3}
       propertyPath: keyCode
-      value: Left Trigger 1
+      value: 97
       objectReference: {fileID: 0}
     - target: {fileID: 6154950657751124419, guid: ba5b8722ff9c3c54e858615df0cc05dc,
         type: 3}
@@ -1095,12 +1115,22 @@ PrefabInstance:
     - target: {fileID: 475432109126144432, guid: ba5b8722ff9c3c54e858615df0cc05dc,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4484799530357793440, guid: ba5b8722ff9c3c54e858615df0cc05dc,
         type: 3}
       propertyPath: keyCode
+      value: 115
+      objectReference: {fileID: 0}
+    - target: {fileID: 4484799530357793440, guid: ba5b8722ff9c3c54e858615df0cc05dc,
+        type: 3}
+      propertyPath: buttonName
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4484799530357793440, guid: ba5b8722ff9c3c54e858615df0cc05dc,
+        type: 3}
+      propertyPath: axisName
+      value: Down 1
       objectReference: {fileID: 0}
     - target: {fileID: 7238646760096735374, guid: ba5b8722ff9c3c54e858615df0cc05dc,
         type: 3}
@@ -1110,12 +1140,22 @@ PrefabInstance:
     - target: {fileID: 7238646760096735361, guid: ba5b8722ff9c3c54e858615df0cc05dc,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6688110922374763409, guid: ba5b8722ff9c3c54e858615df0cc05dc,
         type: 3}
       propertyPath: keyCode
+      value: 119
+      objectReference: {fileID: 0}
+    - target: {fileID: 6688110922374763409, guid: ba5b8722ff9c3c54e858615df0cc05dc,
+        type: 3}
+      propertyPath: buttonName
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6688110922374763409, guid: ba5b8722ff9c3c54e858615df0cc05dc,
+        type: 3}
+      propertyPath: axisName
+      value: Up 1
       objectReference: {fileID: 0}
     - target: {fileID: 6878380149010655909, guid: ba5b8722ff9c3c54e858615df0cc05dc,
         type: 3}
@@ -1125,17 +1165,22 @@ PrefabInstance:
     - target: {fileID: 6878380149010655914, guid: ba5b8722ff9c3c54e858615df0cc05dc,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7480705342338701754, guid: ba5b8722ff9c3c54e858615df0cc05dc,
         type: 3}
       propertyPath: keyCode
-      value: Right Trigger 1
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 7480705342338701754, guid: ba5b8722ff9c3c54e858615df0cc05dc,
         type: 3}
       propertyPath: inputAxis
       value: Right Trigger 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7480705342338701754, guid: ba5b8722ff9c3c54e858615df0cc05dc,
+        type: 3}
+      propertyPath: buttonName
+      value: Right 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba5b8722ff9c3c54e858615df0cc05dc, type: 3}
