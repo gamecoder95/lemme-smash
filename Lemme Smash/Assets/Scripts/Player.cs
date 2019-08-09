@@ -5,19 +5,41 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    // The 2 headers below appear reversed in the Editor for some reason
+
+    [Header("Blue")]
+
     [Header("Becky Combo Buttons")]
 
     [SerializeField]
     private KeyCode blueKeyCode;
 
     [SerializeField]
+    private string blueButtonName;
+
+    [Header("Red")]
+
+    [SerializeField]
     private KeyCode redKeyCode;
+
+    [SerializeField]
+    private string redButtonName;
+
+    [Header("Green")]
 
     [SerializeField]
     private KeyCode greenKeyCode;
 
     [SerializeField]
+    private string greenButtonName;
+
+    [Header("Yellow")]
+
+    [SerializeField]
     private KeyCode yellowKeyCode;
+
+    [SerializeField]
+    private string yellowButtonName;
 
     private int score;
 
@@ -110,19 +132,19 @@ public class Player : MonoBehaviour
         }
 
         // TODO: add X-Box controls
-        if (Input.GetKeyDown(blueKeyCode))
+        if (Input.GetButtonDown(blueButtonName) || Input.GetKeyDown(blueKeyCode))
         {
             AttemptBeckyCombo(BeckyColorPicker.BeckyColor.BLUE);
         }
-        else if (Input.GetKeyDown(redKeyCode))
+        else if (Input.GetButtonDown(redButtonName) || Input.GetKeyDown(redKeyCode))
         {
             AttemptBeckyCombo(BeckyColorPicker.BeckyColor.RED);
         }
-        else if (Input.GetKeyDown(greenKeyCode))
+        else if (Input.GetButtonDown(greenButtonName) || Input.GetKeyDown(greenKeyCode))
         {
             AttemptBeckyCombo(BeckyColorPicker.BeckyColor.GREEN);
         }
-        else if (Input.GetKeyDown(yellowKeyCode))
+        else if (Input.GetButtonDown(yellowButtonName) || Input.GetKeyDown(yellowKeyCode))
         {
             AttemptBeckyCombo(BeckyColorPicker.BeckyColor.YELLOW);
         }
