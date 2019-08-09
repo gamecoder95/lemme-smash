@@ -6,6 +6,18 @@ using UnityEngine;
 
 public class BeckyColorPicker : MonoBehaviour
 {
+    [SerializeField]
+    private GameObject red;
+
+    [SerializeField]
+    private GameObject blue;
+
+    [SerializeField]
+    private GameObject green;
+
+    [SerializeField]
+    private GameObject yellow;
+
     private float waitingTime;
     private float thinkingTime;
     private bool isPressed;
@@ -77,6 +89,41 @@ public class BeckyColorPicker : MonoBehaviour
             // Then choose a value from the enum values from Random as the current color.
             currColor = (BeckyColor)UnityEngine.Random.Range(0, maxColorValue);
 
+            GameObject colorObj;
+            switch (currColor)
+            {
+                case BeckyColor.RED:
+                    colorObj = red;
+                    break;
+
+                case BeckyColor.BLUE:
+                    colorObj = blue;
+                    break;
+
+                case BeckyColor.GREEN:
+                    colorObj = green;
+                    break;
+
+                case BeckyColor.YELLOW:
+                    colorObj = yellow;
+                    break;
+
+                default:
+                    colorObj = null;
+                    break;
+            }
+
+            if (!(colorObj is null))
+            {
+                // Spawns the color object directly above this object
+
+                float spawnPosMagnitude = 0;
+                spawnPosMagnitude += this.GetComponent<SpriteRenderer>().bounds.extents.y;
+                spawnPosMagnitude += colorObj.GetComponent<SpriteRenderer>().bounds.extents.y;
+                Vector3 spawnPos = transform.position + Vector3.up * spawnPosMagnitude;
+
+                colorObj = Instantiate(colorObj, spawnPos, Quaternion.identity);
+            }
             //Debug.Log($"Becky is thinking of {currColor}!");
 
             IsThinking = true;
@@ -95,6 +142,7 @@ public class BeckyColorPicker : MonoBehaviour
 
             IsThinking = false;
             isPressed = false;
+            Destroy(colorObj);
         }
     }
 }

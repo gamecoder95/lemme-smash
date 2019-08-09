@@ -225,6 +225,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa98a15e159bf284cb51ddbc32857ac7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  red: {fileID: 627289502714521513, guid: c8fdc9605e6b0864a97d2c126207e75f, type: 3}
+  blue: {fileID: 5224847745073676997, guid: 3ba5ce2a001c99b4fb0fc8b2c839455f, type: 3}
+  green: {fileID: 5129192131898513032, guid: ce947fcd22c160b4ca8cc2e98164ac09, type: 3}
+  yellow: {fileID: 7352636914664038881, guid: 3c13326e92e175a439b4510255f84ea8, type: 3}
 --- !u!1 &324668785 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7912508512262562749, guid: ba5b8722ff9c3c54e858615df0cc05dc,
